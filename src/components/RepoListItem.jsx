@@ -9,7 +9,7 @@ const RepoListItem = (props) => {
       <div className="left">
         <div className="name">
           <h1>
-            <a>{props.name}</a>
+            <a href="#">{props.name}</a>
           </h1>
         </div>
         <div className="details">

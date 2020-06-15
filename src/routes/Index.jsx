@@ -17,9 +17,7 @@ class Index extends Component {
   };
   handleUserSearch = () => {
     const { value } = this.state;
-    this.props.fetchUserInfo(value).then((data) => {
-      if (data.status === 200) this.props.history.push(`/${value}`);
-    });
+    this.props.fetchUserInfo(value);
   };
   render() {
     return (

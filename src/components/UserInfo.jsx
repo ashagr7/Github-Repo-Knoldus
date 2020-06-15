@@ -35,6 +35,7 @@ const UserInfo = (props) => {
             <a
               href={`https://twitter.com/${data.twitter_username}`}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <TwitterOutlined /> {data.twitter_username}
             </a>

@@ -2,21 +2,28 @@ import React from "react";
 import { connect } from "react-redux";
 import { Layout } from "antd";
 import { GithubFilled, LogoutOutlined } from "@ant-design/icons";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import Home from "./routes/Home";
 import Index from "./routes/Index";
 import Loader from "./components/Loader";
-import { logOut } from "./actions/app";
+import { logOut, showLoader, hideLoader } from "./actions/app";
 import "./custom.scss";
 
 const { Header, Content } = Layout;
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
-    const { is_fetching, userInfo, logOut } = this.props;
-    console.log(userInfo);
+    const {
+      is_fetching,
+      userInfo,
+      logOut,
+      showLoader,
+      hideLoader,
+    } = this.props;
     return (
       <Router>
         <Layout>
@@ -27,20 +34,47 @@ class App extends React.Component {
               {userInfo && <span className="login">/ {userInfo.login}</span>}
             </div>
             <div className="user">
-              <img src={userInfo && userInfo.avatar_url} />
-              {/* <LogoutOutlined
-                title="Logout"
-                style={{ cursor: "pointer" }}
-                onClick={() => {
-                  logOut();
-                }}
-              /> */}
+              {userInfo && (
+                <React.Fragment>
+                  <img src={userInfo.avatar_url} alt={userInfo.login} />
+                  <LogoutOutlined
+                    title="Logout"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      showLoader();
+                      setTimeout(() => {
+                        logOut();
+                        hideLoader();
+                      }, 1000);
+                    }}
+                  />
+                </React.Fragment>
+              )}
             </div>
           </Header>
           <Content style={{ margin: 16 }}>
             <Switch>
-              <Route path="/" exact component={Index} />
-              <Route path="/:username" component={Home} />
+              <Route
+                path="/"
+                exact
+                render={(props) => {
+                  return userInfo ? (
+                    <Redirect to={{ pathname: `/${userInfo.login}` }} />
+                  ) : (
+                    <Index {...props} />
+                  );
+                }}
+              />
+              <Route
+                path="/:username"
+                render={(props) => {
+                  return userInfo ? (
+                    <Home {...props} />
+                  ) : (
+                    <Redirect to={{ pathname: "/" }} />
+                  );
+                }}
+              />
             </Switch>
           </Content>
         </Layout>
@@ -54,4 +88,8 @@ const mapStateToProps = (state) => ({
   is_fetching: state.app.is_fetching,
 });
 
-export default connect(mapStateToProps, { logOut: logOut })(App);
+export default connect(mapStateToProps, {
+  logOut: logOut,
+  showLoader: showLoader,
+  hideLoader: hideLoader,
+})(App);

@@ -6,10 +6,6 @@ import UserInfo from "../components/UserInfo";
 import UserWork from "../components/UserWork";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     const { userInfo, match, fetchUserInfo } = this.props;
     const username = match.params.username;
@@ -19,9 +15,7 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.props);
     const { userInfo } = this.props;
-
     return (
       <Fragment>
         <Row gutter={16}>
