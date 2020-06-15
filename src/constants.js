@@ -1,0 +1,9 @@
+export const ACTION_TYPES = {
+  USER_INFO_FETCHED: "USER_INFO_FETCHED",
+  USER_REPOS_FETCHED: "USER_REPOS_FETCHED",
+  SEARCH_REPOS: "SEARCH_REPOS",
+  FETCHING: "FETCHING",
+  LOADED: "LOADED",
+};
+
+export const BASE_URL = "https://api.github.com";

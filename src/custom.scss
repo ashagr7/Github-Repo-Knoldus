@@ -1,0 +1,93 @@
+.ant-layout {
+  background: none !important;
+}
+.user-avatar-card {
+  .ant-card-body {
+    .ant-card-meta {
+      .ant-card-meta-detail {
+        .ant-card-meta-title {
+          margin: 0;
+          h1 {
+            margin: 0;
+          }
+        }
+        .ant-card-meta-description {
+          h2 {
+            margin: 0;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+}
+.user-rest-info {
+  padding: 24px;
+}
+.repo-list-item {
+  display: flex;
+  border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+  padding: 20px 0 30px 0;
+  .left {
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+    justify-content: flex-start;
+    .name {
+    }
+    .details {
+      span {
+        margin-right: 30px;
+        span {
+          margin-right: 5px !important;
+        }
+      }
+    }
+  }
+  .right {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    .anticon {
+      font-size: 20px;
+    }
+    .text {
+      position: relative;
+      top: -2px;
+    }
+  }
+}
+.repositories-header {
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  div {
+    margin-right: 10px;
+    &:first-child {
+      flex: 1;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+.search-header {
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  img {
+    height: 200px;
+  }
+}
