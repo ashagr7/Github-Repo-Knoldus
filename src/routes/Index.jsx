@@ -18,8 +18,6 @@ class Index extends Component {
   handleUserSearch = () => {
     const { value } = this.state;
     this.props.fetchUserInfo(value).then((data) => {
-      console.log(data);
-
       if (data.status === 200) this.props.history.push(`/${value}`);
     });
   };
@@ -32,7 +30,7 @@ class Index extends Component {
               size="large"
               prefix={<GithubFilled style={{ marginRight: 5 }} />}
               suffix={<SearchOutlined />}
-              placeholder="Search github user"
+              placeholder="Search github user [ &amp; Press Enter ]"
               onChange={this.updateValue}
               onPressEnter={this.handleUserSearch}
               value={this.state.value}

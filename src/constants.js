@@ -4,6 +4,7 @@ export const ACTION_TYPES = {
   SEARCH_REPOS: "SEARCH_REPOS",
   FETCHING: "FETCHING",
   LOADED: "LOADED",
+  LOGGED_OUT: "LOGGED_OUT",
 };
 
 export const BASE_URL = "https://api.github.com";

@@ -11,7 +11,6 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     const { userInfo, match, fetchUserInfo } = this.props;
     const username = match.params.username;
     if (!userInfo && username) {
@@ -20,6 +19,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(this.props);
     const { userInfo } = this.props;
 
     return (

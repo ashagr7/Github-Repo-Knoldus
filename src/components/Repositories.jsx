@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-import { fetchUserRepos, searchRepos } from "../actions/app";
-import { Row, Col, message } from "antd";
+import { fetchUserRepos, searchRepos } from "../actions/repos";
+import { Row, Col } from "antd";
 import RepoListItem from "./RepoListItem";
 import RepositoriesHeader from "./RepositoriesHeader";
 
@@ -65,7 +65,7 @@ class Repostiories extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  userRepoList: state.app.userRepoList,
+  userRepoList: state.repos.userRepoList,
 });
 export default withRouter(
   connect(mapStateToProps, {

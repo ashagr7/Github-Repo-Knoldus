@@ -91,3 +91,30 @@
     height: 200px;
   }
 }
+
+.app-header {
+  display: flex;
+  div.logo {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-start;
+    color: #ffffff;
+    .login {
+      text-transform: capitalize;
+      margin-left: 10px;
+    }
+  }
+  div.user {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
+    color: #ffffff;
+    img {
+      height: 30px;
+      margin: 0 20px;
+      border-radius: 5px;
+    }
+  }
+}
